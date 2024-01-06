@@ -1,0 +1,120 @@
+/* Gaya Umum */
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+nav {
+  background-color: #e70b8b;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+}
+
+.logo img {
+  width: 90px; /* Sesuaikan ukuran logo sesuai kebutuhan */
+  height: auto;
+}
+
+nav ul {
+  list-style-type: none;
+  display: flex;
+  margin: 0;
+  padding: 0;
+}
+
+nav ul li {
+  position: relative;
+  margin: 0 15px;
+}
+
+nav ul li a {
+  color: white;
+  text-decoration: none;
+  padding: 10px 15px;
+}
+
+nav ul li a:hover {
+  background-color: #555;
+}
+
+nav ul li ul.submenu {
+  display: none;
+  position: absolute;
+  background-color: #333;
+  width: 150px;
+  z-index: 1;
+}
+
+nav ul li:hover ul.submenu {
+  display: block;
+}
+
+nav ul li ul.submenu li {
+  margin: 0;
+}
+
+nav ul li ul.submenu li a {
+  padding: 8px 15px;
+}
+
+nav ul li ul.submenu li a:hover {
+  background-color: #555;
+}
+
+/* Media Queries */
+@media (max-width: 768px) {
+  nav {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  nav ul {
+    display: none;
+    width: 100%;
+    flex-direction: column;
+    align-items: flex-start;
+    position: absolute;
+    top: 60px;
+    left: 0;
+    background-color: #333;
+  }
+
+  nav ul.active {
+    display: flex;
+  }
+
+  nav ul li {
+    margin: 10px;
+    position: relative;
+  }
+
+  nav ul li ul.submenu {
+    position: static;
+    display: none;
+    width: auto;
+  }
+
+  nav ul li:hover ul.submenu {
+    display: block;
+    position: static;
+    width: auto;
+    margin-top: -10px;
+  }
+
+  #toggle {
+    display: block;
+    cursor: pointer;
+    order: 1;
+  }
+
+  label[for="toggle"] {
+    order: 2;
+  }
+
+  #toggle:checked + ul {
+    display: flex;
+  }
+}
